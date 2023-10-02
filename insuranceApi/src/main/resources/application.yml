@@ -1,12 +1,12 @@
 spring :
   datasource:
-    url : jdbc:mysql://localhost:3306/mc
+    url : jdbc:mysql://localhost:3306/veliqo_challenge_mc
     username : root
     password: password
     driver-class-name:  com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:

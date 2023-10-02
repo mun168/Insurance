@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ApplicationDto {
 
+    //dto to handle applications
     private Long id;
     private String phone;
     private String fullName;

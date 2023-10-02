@@ -22,7 +22,11 @@ public class ApplicationService {
     private final ApplicationRepo applicationRepo;
     private final UserRepository repository;
 
+    //insurance application businesss logic
 
+
+
+    //application using dto
     public InsuranceApplication applicationAddressDto(ApplicationAddressDto addressDto,long id){
 
 
@@ -56,14 +60,21 @@ public class ApplicationService {
 
     }
 
+    //get list of applications
     public List<InsuranceApplication> getApplications(){
         return applicationRepo.findAll();
     }
 
+
+
+    //get all users applications
     public List<ApplicationDto>getAllByUserId(Long user_id){
         List<ApplicationDto> applicationDtos = applicationRepo.findApplicationsDataByUserId(user_id);
         return applicationDtos;
     }
+
+
+    //accept or reject application
 
     public InsuranceApplication processApplication(Long id,ApplicationAddressDto addressDto){
         InsuranceApplication insuranceApplication = applicationRepo.findById(id)
@@ -76,6 +87,7 @@ public class ApplicationService {
         return  insuranceApplication;
     }
 
+    //get list of users
     public List<User> getUsers(){
 
         List<User> users = repository.findByRoleName(ERole.ROLE_APPLICANT)
@@ -87,6 +99,8 @@ public class ApplicationService {
         return applicationRepo.countApplications();
     }
 
-
+    public void deleteApplications(Long id){
+        applicationRepo.deleteById(id);
+    }
 
 }

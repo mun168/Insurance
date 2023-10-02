@@ -20,12 +20,14 @@ public class ApplicationController {
 
     private final ApplicationService applicationService;
 
+
+    //test controller
     @GetMapping("/all")
     public String allAccess() {
         return "Public Content.";
     }
 
-
+    //client apply for insurance
     @PostMapping("/{user_id}/apply")
     @PreAuthorize("hasRole('APPLICANT')")
     public InsuranceApplication applyInsurance(@RequestBody ApplicationAddressDto applicationAddressDto, @PathVariable long user_id) {
@@ -34,10 +36,13 @@ public class ApplicationController {
         return insuranceApplication;
     }
 
+    //client view applications
     @GetMapping("/{user_id}/applications")
     @PreAuthorize("hasRole('APPLICANT')")
     public List<ApplicationDto> viewApplications(@PathVariable long user_id) {
         return applicationService.getAllByUserId(user_id);
     }
+
+
 
 }

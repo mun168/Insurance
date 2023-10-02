@@ -21,6 +21,7 @@ import java.time.LocalDate;
 @Table(name="applications")
 public class InsuranceApplication {
 
+    //applications entity
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

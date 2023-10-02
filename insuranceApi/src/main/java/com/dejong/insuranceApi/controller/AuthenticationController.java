@@ -19,22 +19,27 @@ public class AuthenticationController {
 
     private final SecurityService securityService;
     private final ApplicationService applicationService;
+   //register user
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse>signUp(@RequestBody RegisterRequest request){
         return ResponseEntity.ok(securityService.register(request));
     }
 
+    //login user
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse>signIn(@RequestBody AuthenticationRequest request) throws Exception{
         return ResponseEntity.ok(securityService.authenticate(request));
     }
 
+
+    //count number of users
     @GetMapping("/count")
     public long getNumber(){
         return securityService.getNumberOfUsers();
     }
 
+    //count number of applications
     @GetMapping("/numApps")
     public long numberOfApplications(){
         return applicationService.countApplications();

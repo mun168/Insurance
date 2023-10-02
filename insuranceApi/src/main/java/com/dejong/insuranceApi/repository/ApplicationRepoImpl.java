@@ -3,10 +3,14 @@ package com.dejong.insuranceApi.repository;
 import com.dejong.insuranceApi.dto.ApplicationDto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.data.jpa.repository.Query;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+
+//handle query to dto mapplings
+
 
 public class ApplicationRepoImpl implements CustomRepo {
 

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Adress {
-
+//user address details
     @Id
     @GeneratedValue
     private Long id;

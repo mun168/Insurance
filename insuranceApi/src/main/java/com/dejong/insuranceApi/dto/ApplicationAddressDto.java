@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApplicationAddressDto {
-
+//dto to handle applications
     private String phone;
     private String fullName;
     private LocalDate dateOfBirth;
