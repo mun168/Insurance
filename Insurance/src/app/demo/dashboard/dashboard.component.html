@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="" >
+    <app-card [hidHeader]="true">
+      <section class="section dashboard">
+        <div class="row">
+              <div class="boxes">
+                    <div class="box box1">
+                        <i class="uil uil-thumbs-up"></i>
+                        <span class="text">Total Users</span>
+                        <span class="number">{{ count }}</span>
+                    </div>
+                    <div class="box box2">
+                        <i class="uil uil-comments"></i>
+                        <span class="text">Total Applications</span>
+                        <span class="number">{{ totalApplications }}</span>
+                    </div>
+                    <div class="box box3">
+                        <i class="uil uil-share"></i>
+                        <span class="text">User Application %</span>
+                        <span class="number">{{percentile}}</span>
+                    </div>
+                </div>
+        </div>
+      </section>  
+    </app-card>
+  </div>
+  <div class="tebho">
+    <app-card
+      cardTitle="Recent Applicants"
+      cardClass="Recent-Applicants"
+      blockClass="px-0 py-3"
+    >
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <th>#</th>
+            <th>First Name</th>
+            <th>Phone</th>
+            <th>Dependants</th>
+            <th>Gender</th>
+            <th>Marital</th>
+            <th>City</th>
+            <th>Date Of Birth</th>
+            <th>Status</th>
+          </thead>
+          <tbody>
+            <tr class="unread" *ngFor = "let item of data">
+              <td>{{ item.id }}</td>
+              <td>{{ item.fullName }}</td>
+              <td>{{ item.phone }}</td>
+              <td>{{ item.dependants }}</td>
+              <td>{{ item.gender }}</td>
+              <td>{{ item.maritalStatus }}</td>
+              <td>{{ item.adress.city }}</td>
+              <td>{{ item.dateOfBirth}}</td>
+              <td>{{ item.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>

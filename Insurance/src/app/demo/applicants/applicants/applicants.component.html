@@ -1,0 +1,52 @@
+
+  <div class="col-xl-12">
+    <app-card
+      cardTitle="Applicants"
+      [options]="false"
+      blockClass="table-border-style"
+    >
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Phone</th>
+              <th>Dependants</th>
+              <th>Gender</th>
+              <th>Marital</th>
+              <th>City</th>
+              <th>Date Of Birth</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>    
+            <tr *ngFor="let item of data">
+              <td>{{ item.id }}</td>
+              <td>{{ item.fullName }}</td>
+              <td>{{ item.phone }}</td>
+              <td>{{ item.dependants }}</td>
+              <td>{{ item.gender }}</td>
+              <td>{{ item.maritalStatus }}</td>
+              <td>{{ item.adress.city }}</td>
+              <td>{{ item.dateOfBirth}}</td>
+              <td>{{ item.status }}</td>
+              <td>         
+               <div ngbDropdown class="dropdown"> 
+                <a ngbDropdownToggle class="cursor"  id="dropdownMenuButton1"  aria-expanded="false" > 
+                  Actions
+                    <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a ngbDropdownItem class="cursor" (click)="Acceptprocess(item.id,'accepted')" >accept</a></li>
+                      <li><a ngbDropdownItem class="cursor" (click)="Acceptprocess(item.id,'rejected')">reject</a></li>
+                      <li><a ngbDropdownItem class="cursor" (click)="deleteApplication(item.id)">delete</a></li>
+                    </ul>
+                  </a>
+               </div>
+              </td>
+            </tr> 
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>

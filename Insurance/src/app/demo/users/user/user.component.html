@@ -1,0 +1,41 @@
+<!-- view user in admin dashboard -->
+  <div class="col-xl-12">
+    <app-card
+      cardTitle="Applicants"
+      [options]="false"
+      blockClass="table-border-style"
+    >
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data">
+              <td>{{ item.id }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.role.name }}</td>
+              <td>
+                <button
+                type="button"
+                class="btn btn-outline-success"
+                ngbTooltip="btn-outline-success"
+                (click) = "setLocal(item.id)"
+                >
+                <a href="applicant/add">
+                  Add Applicants
+                </a>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+ 

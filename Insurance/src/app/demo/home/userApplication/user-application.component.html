@@ -1,0 +1,73 @@
+    <!-- header -->
+    <header>
+      <div class="container">
+          <nav class="nav d-flex">
+              <a href="#" class="logo">
+                  <img src="assets/images/logo.svg" alt="logo">
+              </a>
+              <!-- toggle bar -->
+              <div class="burger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+              <div class="navigation-bar">
+                  <ul>
+                      <li><a href="/home">Home </a></li>
+                      <li><a href="/apply">Apply</a></li>
+                      <li><a href="/viewApplication">Applications</a></li>
+                      <li><a href="#" class="btn" (click) = "logout()">Logout</a></li>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+  </header>
+
+
+<section id="table" class="table mt-3">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Applications</h2>
+      </div>
+
+      <div class="search-form form" >
+        <label>
+            <span class="screen-reader-text">Search for...</span>
+            <input type="search" class="search-field" placeholder="Search ..." [(ngModel)]="searchTerm" (input)="filterTable()"/>
+        </label>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Coverage</th>
+            <th>Dependants</th>
+            <th>Marital Status</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let item of filteredData" >
+            <td>{{ item.id }}</td>
+            <td>{{ item.fullName }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.coverage }}</td>
+            <td>{{ item.dependants }}</td>
+            <td>{{ item.maritalStatus }}</td>
+            <td>{{ item.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    
+     
+
+    </div>
+  </section><!-- End About Us Section -->
+
+  
