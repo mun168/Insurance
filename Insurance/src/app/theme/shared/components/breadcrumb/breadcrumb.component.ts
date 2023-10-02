@@ -92,6 +92,6 @@ export class BreadcrumbComponent {
       }
     });
     this.navigationList = result;
-    this.titleService.setTitle(title + ' | Datta Able Angular Template');
+    this.titleService.setTitle(title + ' | Insurance');
   }
 }
