@@ -1,20 +1,20 @@
-Welcome to Insurance Webapp
+#Welcome to Role Based Insurance Webapp
 
-Run On
+#Built On:
 
-Angular 15  
-Spring Boot 3.1.3
-Spring Security 6
+  Angular : 15  
+  Spring Boot : 3.1.3
+  Spring Security : 6
 
-For front-end
+For front-end:
 
-run npm install
+  run npm install in terminal
 
-after completions
+after completion:
 
-ng serve
+  ng serve
 
 
-admin details
+admin details:
   email : veliqo@gmail.com
   password : veliqo
