@@ -38,37 +38,37 @@ export default class ApplyComponent {
 
 
   //handle on change functions
-  onFullNameChange(target: EventTarget | null) {
+  onFullNameChange(target: EventTarget) {
     if (target instanceof HTMLInputElement) {
       this.fullName = target.value;
     }
   }
 
-  onPhoneChange(target: EventTarget | null) {
+  onPhoneChange(target: EventTarget ) {
     if (target instanceof HTMLInputElement) {
       this.phone = target.value;
     }
   }
 
-  onStreetChange(target: EventTarget | null) {
+  onStreetChange(target: EventTarget ) {
     if (target instanceof HTMLInputElement) {
       this.street = target.value;
     }
   }
 
-  onCityChange(target: EventTarget | null) {
+  onCityChange(target: EventTarget ) {
     if (target instanceof HTMLInputElement) {
       this.city = target.value;
     }
   }
 
-  onCountryChange(target: EventTarget | null) {
+  onCountryChange(target: EventTarget ) {
     if (target instanceof HTMLInputElement) {
       this.country = target.value;
     }
   }
 
-  onPostalChange(target: EventTarget | null) {
+  onPostalChange(target: EventTarget) {
     if (target instanceof HTMLInputElement) {
       this.postal = target.value;
     }
@@ -107,13 +107,13 @@ export default class ApplyComponent {
   this.maritalStatus = $event.target.value;
   }
 
-  onDependantsChange(target: EventTarget  | 0) {
+  onDependantsChange(target: EventTarget) {
     if (target instanceof HTMLInputElement) {
       this.dependants = parseInt(target.value);
     }
   }
 
-  onDateOfBirthChange(target: EventTarget  | null) {
+  onDateOfBirthChange(target: EventTarget) {
     if (target instanceof HTMLInputElement) {
       this.dateOfBirth = target.value;
     }
@@ -147,7 +147,7 @@ export default class ApplyComponent {
         if(this.isSuccess){
 
           //redirect to view application and status
-          window.location.href = "/viewApplication"
+          // window.location.href = "/viewApplication"
         }
 
       },

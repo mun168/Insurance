@@ -6,7 +6,7 @@
     <app-card cardTitle="Appy For Insurance" [options]="false">
       <h5 class="mt-5">Apply</h5>
       <hr />
-      <form (submit)= "saveUserApplication($event)">
+      <form ngNativeValidate  (submit)= "saveUserApplication($event)">
         <div class="row">
           <div class="form-group col-md-6">
             <label for="fullname">Full Name</label>
@@ -150,15 +150,18 @@
               id="date" 
               name="date"
               [value]="dateOfBirth"
-              (input)="onDateOfBirthChange($event.target)"
-              
+              (input)="onDateOfBirthChange($event.target)"              
               required/>
           </div>
         </div>
 
         <button type="submit" class="btn btn-outline-success mt-3">Apply Insurance</button>
         <a href="/home" class="btn btn-outline-success mt-3">Cancel</a>
+        <div class="alert alert-warning" *ngIf="isFailed">
+          Application failed!<br />
+        </div>
       </form>
+
     </app-card>
   </div>
 </div>

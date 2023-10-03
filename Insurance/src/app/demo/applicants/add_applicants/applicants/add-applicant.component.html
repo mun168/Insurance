@@ -3,7 +3,7 @@
     <app-card cardTitle="Application" [options]="false">
       <h5 class="mt-5">Add Applicant</h5>
       <hr />
-      <form (submit)= "saveUserApplication($event)">
+      <form ngNativeValidate (submit)= "saveUserApplication($event)">
         <div class="row">
           <div class="form-group col-md-6">
             <label for="fullname">Full Name</label>
