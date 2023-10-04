@@ -18,7 +18,11 @@ import { UserDataService } from '../../service/user-data.service';
 export default class UserAppComponent implements OnInit {
 
   data: any[] = []
-  filteredData: any[] = [];
+  showAcceptedTable = false;
+  showRejectedTable = false;
+  originalTable = true
+  acceptedData :any[] = []
+  rejectedData : any[] = []
 
 
 
@@ -28,7 +32,11 @@ export default class UserAppComponent implements OnInit {
         next : (data) => {
           console.log(data);
           this.data = data;
-          this.filteredData = this.data;
+          // this.acceptedData = this.toggleAcceptedTable();
+          // console.log(this.acceptedData)
+          // this.rejectedData = this.toggleRejectedTable();
+          // console.log(this.rejectedData)
+
         }
       })
 
@@ -41,33 +49,60 @@ export default class UserAppComponent implements OnInit {
       window.location.href = '/signin';
     }
 
-  //filter data in client table
-  searchTerm: string;
+    filter(value:string):any[]{
+      this.data = this.data.filter(application => application.status === value);
 
-  filterTable(): void {
-    if (!this.searchTerm) {
-      this.filteredData = [...this.data];
-      console.log(this.filteredData)
-      return;
+      return this.data;
     }
 
-    this.filteredData = this.data.filter((item) =>
-      this.matchSearchTerm(item, this.searchTerm)
-    );
-  }
+    toggleAcceptedTable(value : string) :any[]{
 
-  matchSearchTerm(item: any, searchTerm: string): boolean {
-    searchTerm = searchTerm.toLowerCase();
+      // if(value === "accepted")
+      //   this.showAcceptedTable = true;   
+      //   this.showRejectedTable = false;
+      //   this.originalTable = false;
+      //   this.data = this.data.filter(application => application.status === value);
+      //  else if(value==="rejected"){
 
-    const properties = Object.values(item);
-    return properties.some((property) => {
-      if (typeof property === 'string') {
-        return property.toLowerCase().includes(searchTerm);
-      } else if (typeof property === 'number') {
-        return property.toString().includes(searchTerm);
+      // }
+      // return this.filter("accepted");
+      
+      switch(value){
+        case "accepted" : 
+          this.showAcceptedTable = true;  
+          this.showRejectedTable = false;
+          this.originalTable = false;
+          this.acceptedData = this.data.filter(application => application.status === value); break;
+        case "rejected" : 
+          this.showAcceptedTable = false;  
+          this.showRejectedTable = true;
+          this.originalTable = false;
+          this.rejectedData = this.data.filter(application => application.status === value); break;
+        default:   
+          this.showAcceptedTable = false; 
+          this.showRejectedTable = true;
+          this.originalTable = false;
+          this.data = this.data.filter(application => application.status === value); 
+          
       }
-      return false;
-    });
-  }
+
+  
+      console.log(this.data)
+
+      return this.data;
+
+      
+
+    }
+  
+    // toggleRejectedTable() : any[]{
+    //   this.showAcceptedTable = false;   
+    //   this.showRejectedTable = true;
+    //   this.originalTable = false;
+
+    //   return this.filter("rejected");
+    // }
+
+  
 
 }

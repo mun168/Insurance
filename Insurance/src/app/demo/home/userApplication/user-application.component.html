@@ -24,21 +24,17 @@
   </header>
 
 
-<section id="table" class="table mt-3">
+<section id="table" class="table mt-3"  >
     <div class="container" data-aos="fade-up">
       <div class="section-title">
         <h2>Applications</h2>
       </div>
-
-      <div class="search-form form" >
-        <label>
-            <span class="screen-reader-text">Search for...</span>
-            <input type="search" class="search-field" placeholder="Search ..." [(ngModel)]="searchTerm" (input)="filterTable()"/>
-        </label>
+      <div class="bt mt-3">
+        <button class="btn btn-outline-success mb-2" (click)="toggleAcceptedTable('accepted')">Accepted</button>
+        <button class="btn btn2 btn-outline-danger mb-2" (click)="toggleAcceptedTable('rejected')">Rejected</button>
       </div>
-
-      <table class="table">
-        <thead>
+      <table class="table table-responsive">
+        <thead class="thead-dark">
           <tr>
             <th>ID</th>
             <th>Full Name</th>
@@ -50,8 +46,32 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody >
-          <tr *ngFor="let item of filteredData" >
+        <tbody *ngIf="originalTable" >
+          <tr  *ngFor="let item of data" >
+            <td>{{ item.id }}</td>
+            <td>{{ item.fullName }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.coverage }}</td>
+            <td>{{ item.dependants }}</td>
+            <td>{{ item.maritalStatus }}</td>
+            <td>{{ item.status }}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="showAcceptedTable" >
+          <tr  *ngFor="let item of acceptedData" >
+            <td>{{ item.id }}</td>
+            <td>{{ item.fullName }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.coverage }}</td>
+            <td>{{ item.dependants }}</td>
+            <td>{{ item.maritalStatus }}</td>
+            <td>{{ item.status }}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="showRejectedTable">
+          <tr  *ngFor="let item of rejectedData" >
             <td>{{ item.id }}</td>
             <td>{{ item.fullName }}</td>
             <td>{{ item.phone }}</td>

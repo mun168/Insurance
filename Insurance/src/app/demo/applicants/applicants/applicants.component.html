@@ -5,7 +5,13 @@
       [options]="false"
       blockClass="table-border-style"
     >
-      <div class="table-responsive">
+    <div class="search-form form" >
+      <label>
+          <span class="screen-reader-text">Search for...</span>
+          <input type="search" class="search-field" placeholder="Filter ..." [(ngModel)]="searchTerm" (input)="filterTable()"/>
+      </label>
+    </div>
+      <div class="table-responsive mt-3">
         <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
@@ -22,7 +28,7 @@
             </tr>
           </thead>
           <tbody>    
-            <tr *ngFor="let item of data">
+            <tr *ngFor="let item of filteredData">
               <td>{{ item.id }}</td>
               <td>{{ item.fullName }}</td>
               <td>{{ item.phone }}</td>
@@ -47,6 +53,11 @@
             </tr> 
           </tbody>
         </table>
+        <!-- <ul>
+          <li class="pagination" *ngFor="let i of getPageNumbers()">
+            <button class="btn btn-outline-success" (click)="onPageChange(i)">{{i}}</button>
+          </li>
+        </ul> -->
       </div>
     </app-card>
   </div>

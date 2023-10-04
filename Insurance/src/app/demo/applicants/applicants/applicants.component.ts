@@ -30,6 +30,7 @@ export default class ApplicantsComponent {
         next : (data) => {
           console.log(data)
           this.data = data;
+          this.filteredData = this.data;
         }
       })
 
@@ -70,6 +71,39 @@ export default class ApplicantsComponent {
       }
     })
 
+  }
+
+  
+
+  //filter data in admin table
+  searchTerm: string;
+  filteredData: any[] = [];
+
+
+  filterTable(): void {
+    if (!this.searchTerm) {
+      this.filteredData = [...this.data];
+      console.log(this.filteredData)
+      return;
+    }
+
+    this.filteredData = this.data.filter((item) =>
+      this.matchSearchTerm(item, this.searchTerm)
+    );
+  }
+
+  matchSearchTerm(item: any, searchTerm: string): boolean {
+    searchTerm = searchTerm.toLowerCase();
+
+    const properties = Object.values(item);
+    return properties.some((property) => {
+      if (typeof property === 'string') {
+        return property.toLowerCase().includes(searchTerm);
+      } else if (typeof property === 'number') {
+        return property.toString().includes(searchTerm);
+      }
+      return false;
+    });
   }
 
 }

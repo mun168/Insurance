@@ -147,7 +147,7 @@ export default class ApplyComponent {
         if(this.isSuccess){
 
           //redirect to view application and status
-          // window.location.href = "/viewApplication"
+          window.location.href = "/viewApplication"
         }
 
       },
